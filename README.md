@@ -21,7 +21,9 @@ Run serve in port 4000;
 - expected json body.
 
 - Example json body expected:
-  {
+
+```yaml
+{
   "merchant_id": "19",
   "account_id": "123456",
   "amount": "5000",
@@ -38,7 +40,9 @@ Run serve in port 4000;
   "document_number": "",
   "login_email":"",
   "password":""
-  }
+
+}
+
 
 ## POST : http://localhost:4000/gateway_url
 
@@ -58,3 +62,4 @@ Run serve in port 4000;
   "redirect_url": "https://www.merchant_to_you.com",
   "auto_approve": "1"
   }
+```
