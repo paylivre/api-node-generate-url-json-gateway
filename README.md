@@ -18,8 +18,6 @@ Run serve in port 4000;
 
 ## POST : http://localhost:4000/request_json
 
-- expected json body.
-
 - Example json body expected:
 
 ```yaml
@@ -38,18 +36,17 @@ Run serve in port 4000;
   "pix_key_type": "",
   "pix_key": "",
   "document_number": "",
-  "login_email":"",
-  "password":""
-
+  "login_email": "",
+  "password": "",
 }
-
+```
 
 ## POST : http://localhost:4000/gateway_url
 
-- expected json body.
-
 - Example json body expected:
-  {
+
+```yaml
+{
   "merchant_id": "19",
   "account_id": "123456",
   "amount": "5000",
@@ -60,6 +57,6 @@ Run serve in port 4000;
   "document_number": "60712326006",
   "callback_url": "https://www.merchant.com",
   "redirect_url": "https://www.merchant_to_you.com",
-  "auto_approve": "1"
-  }
+  "auto_approve": "1",
+}
 ```
