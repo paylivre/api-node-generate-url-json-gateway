@@ -21,7 +21,12 @@ Run serve in port 4000;
 # Important:
 
 - Set value do Gateway Token of Paylivre in file server.js
-  (line 14 - const gateway_token = {your_gateway_token})
+
+  (server.js - line 14)
+
+  ```js
+  const gateway_token = { your_gateway_token };
+  ```
 
 # Expected Body Json:
 
