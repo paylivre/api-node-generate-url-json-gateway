@@ -11,7 +11,7 @@ function getRandomMerchantTransactionId() {
   return randomMerchantTransactionId.substring(0, 10);
 }
 
-const gateway_token = "teste"
+const gateway_token = "teste" //set your gateway_token here
 
 async function getArgon2i(dados) {
   const argon2i = await argon2

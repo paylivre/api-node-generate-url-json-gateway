@@ -18,7 +18,14 @@ Run serve in port 4000;
 
 ## POST : http://localhost:4000/request_json
 
-- Example json body expected:
+# Important:
+
+- Set value do Gateway Token of Paylivre in file server.js
+  (line 14 - const gateway_token = {your_gateway_token})
+
+# Expected Body Json:
+
+- Below, example body json expected on request to generate json for request on gateway api:
 
 ```yaml
 {
@@ -43,7 +50,7 @@ Run serve in port 4000;
 
 ## POST : http://localhost:4000/gateway_url
 
-- Example json body expected:
+- below, example body json expected on request to generate the url for the web gateway:
 
 ```yaml
 {
