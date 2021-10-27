@@ -14,7 +14,7 @@ Run serve in port 4000;
 
 - Open in Software to request POST [http://localhost:4000](http://localhost:4000)
 
-# Important:
+# Important: set your gateway_token on the server
 
 - Set value do Gateway Token of Paylivre in file server.js
 
