@@ -1,15 +1,17 @@
 const express = require('express')
+const cors = require('cors')
 const argon2 = require("argon2-browser")
 const { v4 } = require("uuid")
-const gateway_token = "teste"
 
 const app = express()
+app.use(cors());
 
 function getRandomMerchantTransactionId() {
   const randomMerchantTransactionId = v4().replace(/-/g, "");
   return randomMerchantTransactionId.substring(0, 10);
 }
 
+const gateway_token = "teste"
 
 async function getArgon2i(dados) {
   const argon2i = await argon2

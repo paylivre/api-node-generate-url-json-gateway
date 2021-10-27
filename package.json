@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node src/server"
+    "start": "node src/server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "argon2-browser": "^1.18.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "nodemon": "^2.0.14",
     "uuid": "^8.3.2"
