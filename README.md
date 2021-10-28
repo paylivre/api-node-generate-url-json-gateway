@@ -30,7 +30,8 @@ Run serve in port 4000;
 
 # Expected Body Json:
 
-- <h3>URL OPTIONAL PARAMS:</h3> The following optional values must not be passed with empty values, when valid values are not passed, they must not be sent in the properties.
+- <h3>URL OPTIONAL PARAMS:</h3> 
+  The following optional values must not be passed with empty values, when valid values are not passed they must not be sent in url properties.
 
   - <b>email</b> (A valid email must be given or not send parameter)
 
