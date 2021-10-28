@@ -30,16 +30,16 @@ Run serve in port 4000;
 
 # Expected Body Json:
 
-- URL OPTIONAL PARAMS: The following optional values must not be passed with empty values, when valid values are not passed, they must not be sent in the properties.
+- <h3>URL OPTIONAL PARAMS:</h3> The following optional values must not be passed with empty values, when valid values are not passed, they must not be sent in the properties.
 
-  - email (A valid email must be given or not send parameter)
+  - <b>email</b> (A valid email must be given or not send parameter)
 
-  - document (A valid document (CPF or CNPJ) must be provided or no parameter must be sent)
+  - <b>document</b> (A valid document (CPF or CNPJ) must be provided or no parameter must be sent)
 
-  - redirect_url (Must be passed a valid non-empty string or do not send parameter
+  - <b>redirect_url</b> (Must be passed a valid non-empty string or do not send parameter
     a value must be passed)
 
-  - logo_url_example (Must be passed a valid non-empty string or do not send parameter
+  - <b>logo_url_example</b> (Must be passed a valid non-empty string or do not send parameter
     a value must be passed)
 
 - Below, example body json expected on request to generate json for request on gateway api:
