@@ -30,6 +30,18 @@ Run serve in port 4000;
 
 # Expected Body Json:
 
+- URL OPTIONAL PARAMS: The following optional values must not be passed with empty values, when valid values are not passed, they must not be sent in the properties.
+
+  - email (A valid email must be given or not send parameter)
+
+  - document (A valid document (CPF or CNPJ) must be provided or no parameter must be sent)
+
+  - redirect_url (Must be passed a valid non-empty string or do not send parameter
+    a value must be passed)
+
+  - logo_url_example (Must be passed a valid non-empty string or do not send parameter
+    a value must be passed)
+
 - Below, example body json expected on request to generate json for request on gateway api:
 
 ```yaml
@@ -41,6 +53,7 @@ Run serve in port 4000;
   "operation": "0",
   "callback_url": "https://www.merchant.com",
   "redirect_url": "https://www.merchant_to_you.com",
+  "logo_url_example": "https://raw.githubusercontent.com/paylivre/gateway-example-react-js/531efa528867022859ee579fce7567038bf1c190/assets/logo_jackpot.svg",
   "type": "1",
   "auto_approve": "1",
   "email": "person_user_gateway@test.com",
@@ -69,6 +82,7 @@ Run serve in port 4000;
   "document_number": "60712326006",
   "callback_url": "https://www.merchant.com",
   "redirect_url": "https://www.merchant_to_you.com",
+  "logo_url_example": "https://raw.githubusercontent.com/paylivre/gateway-example-react-js/531efa528867022859ee579fce7567038bf1c190/assets/logo_jackpot.svg",
   "auto_approve": "1",
 }
 ```

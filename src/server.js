@@ -6,9 +6,9 @@ const { v4 } = require("uuid")
 const app = express()
 app.use(cors());
 
-function getRandomMerchantTransactionId() {
+function getRandomHash(size) {
   const randomMerchantTransactionId = v4().replace(/-/g, "");
-  return randomMerchantTransactionId.substring(0, 10);
+  return randomMerchantTransactionId.substring(0, size);
 }
 
 const gateway_token = "teste" //set your gateway_token here
@@ -17,7 +17,7 @@ async function getArgon2i(dados) {
   const argon2i = await argon2
     .hash({
       pass: dados,
-      salt: "dZk8N6kUaA32XCsS",
+      salt: getRandomHash(14),
       time: 2,
       mem: 16,
       parallelism: 1,
@@ -31,7 +31,7 @@ async function getArgon2i(dados) {
 
 
 function getUrlGateway(DataURL, signature) {
-  const merchant_transaction_id_random = getRandomMerchantTransactionId()
+  const merchant_transaction_id_random = getRandomHash(10)
   const base_url = "https://dev.gateway.paylivre.com"
   const merchant_transaction_id = `merchant_transaction_id=${merchant_transaction_id_random}`;
   const merchant_id = `merchant_id=${DataURL.merchant_id}`;
