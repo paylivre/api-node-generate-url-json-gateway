@@ -11,7 +11,7 @@ function getRandomHash(size) {
   return randomMerchantTransactionId.substring(0, size);
 }
 
-const gateway_token = "teste" //set your gateway_token here
+
 
 async function getArgon2i(dados) {
   const argon2i = await argon2
@@ -42,17 +42,18 @@ function getUrlGateway(DataURL, signature) {
   const currency = `currency=${DataURL.currency}`;
   const operation = `operation=${DataURL.operation}`;
   const calback_url = `callback_url=${DataURL.callback_url}`;
-  const redirect_url = `redirect_url=${DataURL.redirect_url}`;
+  const redirect_url = DataURL.redirect_url ? `&redirect_url=${DataURL.redirect_url}` : "";
   const mock_type = `type=${DataURL.type}`;
-  const mock_auto_approve = `auto_approve=${DataURL.auto_approve}`;
+  const auto_approve = `auto_approve=${DataURL.auto_approve}`;
   const Signature = signature ? `&signature=${signature}` : "";
+  const logoUrl = DataURL.logo_url ? `&logo_url=${DataURL.logo_url}` : "";
 
   const email = DataURL.email ? `&email=${DataURL.email}` : "";
   const document_number = DataURL.document_number
     ? `&document_number=${DataURL.document_number}`
     : "";
 
-  const UrlGateway = `${base_url}?${merchant_transaction_id}&${merchant_id}&${operation}${email}${document_number}&${amount}&${currency}&${mock_type}&${account_id}&${calback_url}&${redirect_url}&${mock_auto_approve}${Signature}`;
+  const UrlGateway = `${base_url}?${merchant_transaction_id}&${merchant_id}&${operation}${email}${document_number}&${amount}&${currency}&${mock_type}&${account_id}&${calback_url}&${auto_approve}${redirect_url}${Signature}${logoUrl}`;
 
   return {url: UrlGateway, merchant_transaction_id: merchant_transaction_id_random};
 }
@@ -68,12 +69,12 @@ function utf8_to_b64(str) {
 async function handleGenerateData(data) {
   try {
     const dataToRequest = getUrlGateway(data);
-
-    const valueToGetArgon2iHash = gateway_token + dataToRequest.url;
+    const valueToGetArgon2iHash = data.gateway_token + dataToRequest.url;
     const argon2iHash = await getArgon2i(valueToGetArgon2iHash);
     const signature = utf8_to_b64(argon2iHash);
     
     const urlWithSignature = {url: `${dataToRequest.url}&signature=${signature}`}
+
     const dataWithSignature = {
         ...data,
         merchant_transaction_id: dataToRequest.merchant_transaction_id,
