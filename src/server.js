@@ -29,10 +29,12 @@ async function getArgon2i(dados) {
   return argon2i;
 }
 
+const baseUrlPlayground = "https://playground.gateway.paylivre.com"
+
 
 function getUrlGateway(DataURL, signature) {
   const merchant_transaction_id_random = getRandomHash(10)
-  const base_url = "https://dev.gateway.paylivre.com"
+  const base_url = DataURL.base_url? DataURL.base_url : baseUrlPlayground
   const merchant_transaction_id = `merchant_transaction_id=${merchant_transaction_id_random}`;
   const merchant_id = `merchant_id=${DataURL.merchant_id}`;
   const account_id = `account_id=${DataURL.account_id}`;

@@ -43,6 +43,8 @@ Run serve in port 4000;
   - <b>logo_url_example</b> (Must be passed a valid non-empty string or do not send parameter
     a value must be passed)
 
+  - <b>base_url</b> (default value - https://playground.gateway.paylivre.com)
+
 - Below, example body json expected on request to generate json for request on gateway api:
 
 ```yaml
