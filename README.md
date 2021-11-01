@@ -14,16 +14,6 @@ Run serve in port 4000;
 
 - Open in Software to request POST [http://localhost:4000](http://localhost:4000)
 
-# Important: set your gateway_token on the server
-
-- Set value do Gateway Token of Paylivre in file server.js
-
-  (server.js - line 14)
-
-  ```js
-  const gateway_token = { your_gateway_token };
-  ```
-
 ### Routes:
 
 ## POST : http://localhost:4000/request_json
@@ -40,7 +30,7 @@ Run serve in port 4000;
   - <b>redirect_url</b> (Must be passed a valid non-empty string or do not send parameter
     a value must be passed)
 
-  - <b>logo_url_example</b> (Must be passed a valid non-empty string or do not send parameter
+  - <b>logo_url</b> (Must be passed a valid non-empty string or do not send parameter
     a value must be passed)
 
   - <b>base_url</b> (default value - https://playground.gateway.paylivre.com)
@@ -50,13 +40,14 @@ Run serve in port 4000;
 ```yaml
 {
   "merchant_id": "19",
+  "gateway_token": "teste",
   "account_id": "123456",
   "amount": "5000",
   "currency": "BRL",
   "operation": "0",
   "callback_url": "https://www.merchant.com",
   "redirect_url": "https://www.merchant_to_you.com",
-  "logo_url_example": "https://raw.githubusercontent.com/paylivre/gateway-example-react-js/531efa528867022859ee579fce7567038bf1c190/assets/logo_jackpot.svg",
+  "logo_url": "https://raw.githubusercontent.com/paylivre/gateway-example-react-js/531efa528867022859ee579fce7567038bf1c190/assets/logo_jackpot.svg",
   "type": "1",
   "auto_approve": "1",
   "email": "person_user_gateway@test.com",
@@ -76,6 +67,7 @@ Run serve in port 4000;
 ```yaml
 {
   "merchant_id": "19",
+  "gateway_token": "teste",
   "account_id": "123456",
   "amount": "5000",
   "currency": "BRL",
