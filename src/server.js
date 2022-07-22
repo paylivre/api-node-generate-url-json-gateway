@@ -82,6 +82,14 @@ async function handleGenerateData(data) {
       url: `${dataToRequest.url}&signature=${signature}`,
     };
 
+    if (data.gateway_token) {
+      delete data.gateway_token;
+    }
+
+    if (data.base_url) {
+      delete data.base_url;
+    }
+
     const dataWithSignature = {
       ...data,
       merchant_transaction_id: dataToRequest.merchant_transaction_id,
